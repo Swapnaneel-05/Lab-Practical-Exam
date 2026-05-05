@@ -11,7 +11,7 @@ router.get("/products",async (req,res)=>{
         const product = await Product.find();
         res.json(product);
     } catch (error) {
-        res.json({error: error.message});
+        res.json({ error: error.message });
     }
 })
 
@@ -21,7 +21,7 @@ router.post("/products", async (req,res)=>{
         const product = new Product(req.body);
         const saved = await product.save();
         res.json(saved);
-  } catch (err) {
+  } catch (error) {
         res.json({ error: error.message });
   }
 })
@@ -38,7 +38,7 @@ router.get("/products/:id", async (req,res)=>{
     }
 
     res.json(product);
-  } catch (err) {
+  } catch (error) {
     res.json({ error: error.message });
   }
 })
@@ -59,7 +59,7 @@ router.put("/products/:id", async (req,res)=>{
     }
 
     res.json(updated);
-  } catch (err) {
+  } catch (error) {
     res.json({ error: error.message });
   }
 })
@@ -77,7 +77,7 @@ router.delete("/products/:id", async (req,res)=>{
     }
 
     res.json({ message: "Product deleted" });
-  } catch (err) {
+  } catch (error) {
     res.json({ error: error.message });
   }
 })
